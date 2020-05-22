@@ -46,8 +46,6 @@ class Description extends Component {
                             <img src={title}/>
                             <br/>
                             <br/>
-                            <MDBCardTitle className="h1-responsive font-bold">Everything works better together</MDBCardTitle>
-                            <p className="mx-5 mb-5">We’ll show you some of our favorite pairings. Just turn on what you like and we’ll make it happen for you.</p>
                     </MDBCol>
                 </MDBJumbotron>
                 <br/>
@@ -56,17 +54,11 @@ class Description extends Component {
                     <MDBContainer>
                         <MDBRow>
                             <MDBCol size="7" style={{right: "20%"}}>
-                                <h2 style={{color:"#9723E5"}}><strong>Area, a third year's project</strong></h2>
                                 <br/>
-                                <h4 ><strong>IFTTT is the free way to get all your apps and devices talking to each other. Not everything on the internet plays nice, so we're on a mission to build a more connected world.</strong></h4>
                                 <br/>
-                                <h4>Connect your account via oauth2 to all api's available :</h4>
-                                <h4>Github, Weather, DropBox, Gmail, Slack, Discord</h4>
                                 <br/>
-                                <div style={{marginLeft : "20%"}}><img src={apiimage}/></div>
                             </MDBCol>
                             <MDBCol size="5">
-                                <h4><strong>Join us for free and get a grade A !</strong></h4>
                                 <MDBRow>
                                     <MDBCol size="3">
                                         <Link to='/Login'><MDBBtn color="btn btn-outline-purple" className="text-monospace">Login</MDBBtn></Link>
