@@ -284,7 +284,7 @@ app.get('/', function(req, res) {
 
    let API_KEY = "";
    let userId = `thibaut.de.lignerolles%40gmail.com`;
-   let url = `https://www.googleapis.com/gmail/v1/users/` + userId + `/messages?includeSpamTrash=true&q=is%3Aunread&key=` + API_KEY;
+   let url = "https://www.googleapis.com/gmail/v1/users/me/messages?includeSpamTrash=true&q=is%3Aunread";
  
    request(url, function (err, response, body) {  
    if(err){
@@ -303,7 +303,7 @@ app.get('/', function(req, res) {
            let mail_id = obj.message[i].id;           
 
            app.get('/', function(req, res) {
-               let url = `https://www.googleapis.com/gmail/v1/users/` + userId + `/messages/` + mail_id + `?format=full&key=` + API_KEY;
+               let url = "https://www.googleapis.com/gmail/v1/users/me/messages/` + mail_id + `?format=full";
                
                request(url, function (err, response, body) {  
                if(err){
