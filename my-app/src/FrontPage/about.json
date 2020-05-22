@@ -1,0 +1,95 @@
+{
+  "client": {
+    "host": "10.101.53.35"
+  },
+  "server": {
+    "current_time": 1531680780,
+    "services": [{
+      "name": "discord",
+      "actions": [{
+          "name": "Action on a server",
+          "description": "I leave or join a server on Discord"
+      }, {
+          "name": "Someone join Epitech server",
+          "description": "New person join the Epitech server"
+      }],
+      "reactions": [{
+          "name": "Send message to Discord",
+          "description": "Send message to Discord if I leave or join a server"
+      }, {
+          "name": "Send message to Slack",
+          "description": "Send message to Slack if I leave or join a server"
+      }]
+  }, {
+      "name": "Dropbox",
+      "actions": [{
+        "name": "Upload file Dropbox cloud",
+        "description": "A file was uploaded on my dropbox cloud"
+      }, {
+        "name": "Delete file Dropbox cloud",
+        "description": "A file was deleted on my dropbox cloud"
+    }],
+    "reactions": [{
+        "name": "Send message to Discord",
+        "description": "Send a message to Discord"
+    }, {
+        "name": "Send message to Slack",
+        "description": "Send a message to Slack"
+    }]
+}, {
+      "name": "Github",
+      "actions": [{
+        "name": "Create a reminder",
+        "description": "Create a reminder on slack about pushing a commit"
+    }, {
+        "name": "Bot send message",
+        "description": "Bot send a message to channel"
+    }],
+      "reactions": [{
+        "name": "Create a reminder",
+        "description": "Create a reminder on slack about pushing a commit"
+    }, {
+        "name": "Bot send message",
+        "description": "Bot send a message to channel"
+      }]
+  }, {
+      "name": "Google",
+      "actions": [{
+        "name": "Receive a mail by Olivier",
+        "description": "Olivier Chane send me an mail"
+    }, {
+        "name": "Delete a mail",
+        "description": "I delete a mail"
+    }],
+      "reactions": [{
+        "name": "Delete the last mail",
+        "description": "Delete the last mail in the box"
+      }]
+  }, {
+      "name": "Slack",
+      "actions": [{
+        "name": "Add a star",
+        "description": "If I add a star on an item"
+    }, {
+        "name": "Change my name",
+        "description": "If I change my name on Slack"
+    }],
+      "reactions": [{
+        "name": "Send message",
+        "description": "Send message to Slack with the action I did"
+    }, {
+        "name": "Change status",
+        "description": "change my status to away"
+      }]
+  }, {
+      "name": "Weather",
+      "actions": [{
+        "name": "Check weather",
+        "description": "If weather fall under 5 degrees"}],
+      "reactions": [{
+        "name": "Send mail to Olivier",
+        "description": "Send an email to Olivier to tell him to wear a jacket"
+        }]
+    }]
+  }
+}

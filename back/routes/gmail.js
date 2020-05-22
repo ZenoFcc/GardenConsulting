@@ -18,22 +18,22 @@ router.post('/catchId', (req, res) => {
 })
 
 router.get('/oauth2/redirect', async (req, res) => {
-    const { query } = req;
-    const { code } = query;
+    const {query} = req;
+    const {code} = query;
     console.log("----" + code);
-    const Redirect_URI = "http://localhost:4000/google/oauth2/redirect";
-    const clientID = "";
-    const clientSecret = "";
+    const Redirect_URI = "http://localhost:8080/google/oauth2/redirect";
+    const clientID = "19051343415-ksd0n9n2p1sv74htiekb4ctl9fe0mpj1.apps.googleusercontent.com";
+    const clientSecret = "RtjgBTLQh2BsJjE3bQwxIhT2";
 
     axios({
         method: 'post',
         url: "https://oauth2.googleapis.com/token",
         data: {
-            grant_type:'authorization_code',
-            code:code,
-            redirect_uri:Redirect_URI,
-            client_id:clientID,
-            client_secret:clientSecret
+            grant_type: 'authorization_code',
+            code: code,
+            redirect_uri: Redirect_URI,
+            client_id: clientID,
+            client_secret: clientSecret
         },
         headers: {
             accept: 'application/x-www-form-urlencoded'
@@ -41,13 +41,11 @@ router.get('/oauth2/redirect', async (req, res) => {
     }).then((response) => {
         const accessToken = response.data.access_token;
         console.log("--- access ->" + accessToken);
-        User.update({ _id:id}, {google : accessToken}, function(err, doc) {
-            if (err)
-                res.status(400).send({message : "sorry"});
-            res.redirect("http://localhost:3000/Home");
-        });
+        //User.update({ _id:id}, {google : accessToken}, function(err, doc) {
+        //    if (err)
+        //        res.status(400).send({message : "sorry"});
+        res.redirect("http://localhost:3000/Accueil");
     }).catch((error) => console.log(error));
-
 });
 
 router.post('/checkTokken', (req, res) => {
@@ -74,3 +72,5 @@ router.post('/checkTokken', (req, res) => {
         .catch(err => console.log(err))
 
 })
+
+module.exports = router;

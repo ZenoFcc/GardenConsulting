@@ -17,6 +17,10 @@ connection.once("open", () => {
     }
 );
 
+const gmail = require("./routes/gmail");
+
+app.use("/gmail", gmail);
+
 app.listen(port, () => {
     console.log("Server connect to :", port);
 });
