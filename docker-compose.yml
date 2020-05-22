@@ -1,0 +1,24 @@
+version: "3"
+services:
+    frontend:
+        container_name: react
+        depends_on:
+            - backend
+        build:
+            context: ./my-app
+            dockerfile: Dockerfile
+        ports:
+            - "8081:8081"
+        volumes:
+            - './my-app:/usr/src/'
+            - '/usr/src/node_modules'
+    backend:
+        container_name: nodeserver
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+        volumes:
+            - './backend:/usr/src/'
+            - './backend/package.json:/usr/src/package.json'
