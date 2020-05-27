@@ -279,7 +279,31 @@ router.post('/recArea', (req, res) => {
         })
 });
 
-router.get('/', function(req, res) {
+const passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
+
+console.log('test');
+
+passport.use(new GoogleStrategy({
+        consumerKey: '596595955622-g5vdbakaghlc4lt4svgiqk9nrev68n78.apps.googleusercontent.com'
+        , consumerSecret: 'JNIaz1UUoQLuwbpbAHSwqDRl'
+        , userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo'
+        //, callbackURL: config.baseurl + '/oauth2callback'
+    }
+    , function(accessToken, refreshToken, profile, done) {
+        // do your thing here
+        var Gmail = require('node-gmail-api');
+        gmail = new Gmail(accessToken);
+        s = gmail.messages('label:inbox', {max: 10});
+        
+        s.on('data', function (d) {
+        console.log(d.snippet)
+        })
+    }
+))
+
+
+/*router.get('/', function(req, res) {
     //REQUEST LIST MAIL
 
    let API_KEY = "";
@@ -327,6 +351,6 @@ router.get('/', function(req, res) {
        res.sendStatus(200); //FIN REQUETE MAIL LIST
    }
    })
-});
+});*/
 
 module.exports = router;
