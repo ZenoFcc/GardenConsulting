@@ -9,7 +9,7 @@ class Nav extends Component {
         return (
             <Navbar style={{backgroundColor : "#9723E5"}} expand="lg" variant="dark">
                 <Container>
-                    <Navbar.Brand href={'/#home'} style={{fontSize : "180%"}}><strong>AREA</strong></Navbar.Brand>
+                    <Navbar.Brand href={'/#home'} style={{fontSize : "180%"}}><strong>Stage Garden Consulting</strong></Navbar.Brand>
                 </Container>
             </Navbar>
         );

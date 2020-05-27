@@ -69,7 +69,7 @@ class ModalGoogle extends React.Component {
     render() {
         return (
             <div>
-                <MDBBtn color="green" onClick={this.toggle}>Choose your area</MDBBtn>
+                <MDBBtn color="green" >Connected</MDBBtn>
                 <form onSubmit={this.handleSubmit}>
                     <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
                         <MDBModalHeader toggle={this.toggle}>List of actions and reactions</MDBModalHeader>

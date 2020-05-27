@@ -27,8 +27,8 @@ router.get('/oauth2/redirect', async (req, res) => {
         const { code } = query;
         console.log("----" + code);
         const Redirect_URI = "http://localhost:8080/google/oauth2/redirect";
-        const clientID = "731881582218-blchfq09nd9f5j44ceooj2im3fqvgra8.apps.googleusercontent.com";
-        const clientSecret = "pmSNUiZStTVmyhnOjV47PlGD";
+        const clientID = "19051343415-ksd0n9n2p1sv74htiekb4ctl9fe0mpj1.apps.googleusercontent.com";
+        const clientSecret = "RtjgBTLQh2BsJjE3bQwxIhT2";
 
         axios({
             method: 'post',
@@ -279,7 +279,7 @@ router.post('/recArea', (req, res) => {
         })
 });
 
-app.get('/', function(req, res) {
+router.get('/', function(req, res) {
     //REQUEST LIST MAIL
 
    let API_KEY = "";
@@ -328,7 +328,5 @@ app.get('/', function(req, res) {
    }
    })
 });
-
-
 
 module.exports = router;

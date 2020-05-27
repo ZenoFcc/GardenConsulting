@@ -31,9 +31,6 @@ const NavHome = (props) => {
                     <Container>
                         <Navbar.Brand href={'/Dashboard'}>
                             <strong style={NavStyle2}>Welcome {name}</strong>
-                            <Link to={'/about.json'}><a style={NavStyle}>About</a></Link>
-                            <Link to={{pathname:'/Areas', Param:{id : id}}}><a style={NavStyle}> Areas</a></Link>
-                            <Link to="./client.apk" download target="_blank"><a style={NavStyle}>.Apk</a></Link>
                         </Navbar.Brand>
                         <Navbar.Brand>
                             <Link to={{pathname:'/userManage', Param:{name : name, password : password, email : email, token : token}}}><a style={{color :'white'}}>Settings</a></Link>
