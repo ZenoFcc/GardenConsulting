@@ -280,7 +280,7 @@ router.post('/recArea', (req, res) => {
         })
 });
 
-const passport = require('passport');
+/*const passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 
 console.log('test');
@@ -302,7 +302,7 @@ passport.use(new GoogleStrategy({
         })
     }
 ))
-
+*/
 
 /*router.get('/', function(req, res) {
     //REQUEST LIST MAIL

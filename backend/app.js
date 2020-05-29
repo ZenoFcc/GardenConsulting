@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors())
 
-const uri = "mongodb+srv://stage:stage@cluster0-olz9g.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://gardenco:gardenco@cluster0-jdno1.mongodb.net/test?retryWrites=true&w=majority";
 mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex:true}) //connection a la db
 const connection = mongoose.connection    //creation de l'objet connexion
 connection.once('open', () => {
