@@ -29,6 +29,7 @@ router.get('/oauth2/redirect', async (req, res) => {
         const Redirect_URI = "http://localhost:8080/google/oauth2/redirect";
         const clientID = "19051343415-ksd0n9n2p1sv74htiekb4ctl9fe0mpj1.apps.googleusercontent.com";
         const clientSecret = "RtjgBTLQh2BsJjE3bQwxIhT2";
+//        const tmp = "test";
 
         axios({
             method: 'post',
