@@ -8,6 +8,8 @@ const { URLSearchParams } = require('url');
 let checkOlive = "false";
 router.use(cors());
 
+var Gmail = require('node-gmail-api');
+
 let id;
 
 router.post('/catchId', (req, res) => {
@@ -27,8 +29,8 @@ router.get('/oauth2/redirect', async (req, res) => {
         const { code } = query;
         console.log("----" + code);
         const Redirect_URI = "http://localhost:8080/google/oauth2/redirect";
-        const clientID = "19051343415-ksd0n9n2p1sv74htiekb4ctl9fe0mpj1.apps.googleusercontent.com";
-        const clientSecret = "RtjgBTLQh2BsJjE3bQwxIhT2";
+        const clientID = "731881582218-blchfq09nd9f5j44ceooj2im3fqvgra8.apps.googleusercontent.com";
+        const clientSecret = "pmSNUiZStTVmyhnOjV47PlGD";
 //        const tmp = "test";
 
         axios({
@@ -47,6 +49,47 @@ router.get('/oauth2/redirect', async (req, res) => {
         }).then((response) => {
             const accessToken = response.data.access_token;
             console.log("--- access ->" + accessToken);
+            
+
+	        console.log("---Requetes---");
+	        console.log(accessToken + " accessToken");
+	        
+	        
+	        gmail = new Gmail(accessToken);
+	        
+	        s = gmail.messages('label:inbox', {max: 15});
+	        
+	        s.on('data', function (d) {
+            
+            //console.log(d.snippet);
+            if (d.snippet.includes("Amazon")) {
+
+                prefix = "&quot;"
+                suffix = "&quot;"
+                s = d.snippet;
+	            var i = s.indexOf(prefix);
+	            if (i >= 0) {
+		            s = s.substring(i + prefix.length);
+	            }
+	            else {
+		            s = '';
+	            }
+	            if (suffix) {
+		            i = s.indexOf(suffix);
+		        if (i >= 0) {
+			        s = s.substring(0, i);
+		        }
+		        else {
+		            s = '';
+                }}
+                var ProductName = s;
+
+                console.log("_____________________");
+                console.log("Facture détecté! Produit: " + ProductName);
+                console.log("_____________________");
+            }
+        })
+
             User.update({ _id:id}, {google : accessToken}, function(err, doc) {
                 if (err)
                     res.status(400).send({message : "sorry"});

@@ -1,0 +1,25 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "merge-descriptors": "^1.0.1",
+    "node-gmail-api": "^0.6.1",
+    "package-lock.json": "^1.0.0",
+    "package.json": "^2.0.1"
+  },
+  "name": "stage_2020_gc",
+  "version": "1.0.0",
+  "main": "backend/app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.epitech.eu:/enzo.ekobo@epitech.eu/STAGE_2020_GC"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": ""
+}
