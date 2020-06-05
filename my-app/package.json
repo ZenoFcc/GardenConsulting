@@ -12,6 +12,7 @@
     "jwt-decode": "^2.2.0",
     "linkify": "^0.2.1",
     "mdbreact": "^4.17.0",
+    "mf-react-csv-to-table": "^1.0.1",
     "nodemon": "^1.19.4",
     "react": "^16.9.0",
     "react-aria-modal": "^4.0.0",

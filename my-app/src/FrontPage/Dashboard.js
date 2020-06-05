@@ -39,7 +39,6 @@ const NavHome = (props) => {
                 </Navbar>
                 <MDBJumbotron style={{backgroundColor:"#9723E5"}}>
                     <MDBCol className="text-white text-center">
-                    <MDBCardTitle className="h1-responsive font-bold">Choose your actions and reactions  <img src={puzzle}/></MDBCardTitle>
                     </MDBCol>
                 </MDBJumbotron>
                 <Switch>

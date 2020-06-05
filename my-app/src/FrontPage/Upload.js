@@ -1,56 +1,15 @@
-/*import React from "react";
-//import { CsvToHtmlTable } from 'react-csv-to-table';
-import CSVReader from "react-csv-reader";
-import "./styles.css";
-
-
-const handleForce = (data, fileInfo) => console.log(data, fileInfo);
-
-class Reader extends  React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { items: [], text: ''};
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-
-        this.handleChange(e) {
-            this.setState({data: e.target.value})
-        }
-    }
-    render() {
-        return (
-            <div className="container">
-                <CSVReader
-                    cssClass="react-csv-input"
-                    label="Select CSV with secret Death Star statistics"
-                    onFileLoaded={handleForce}
-                />
-                <p>and then open the console</p>
-            </div>
-        );
-    }
-}
-
-export default Reader;*/
-
-import axios from 'axios';
-
+/*import axios from 'axios';
 import React,{Component} from 'react';
 
 class Reader extends Component {
 
     state = {
-
-        // Initially, no file is selected
         selectedFile: null
     };
 
-    // On file select (from the pop up)
-    onFileChange = event => {
 
-        // Update the state
-        this.setState({ selectedFile: event.target.files[0] });
+    onFileChange = event => {
+        this.setState({ selectedFile: event.target.files[0]});
 
     };
 
@@ -87,6 +46,7 @@ class Reader extends Component {
                     <p>File Name: {this.state.selectedFile.name}</p>
                     <p>File Type: {this.state.selectedFile.type}</p>
                 </div>
+
             );
         } else {
             return (
@@ -111,6 +71,87 @@ class Reader extends Component {
                 {this.fileData()}
             </div>
         );
+    }
+}
+
+export default Reader;*/
+
+
+/*import React, { Component } from 'react'
+
+import CsvToTable from 'mf-react-csv-to-table'
+
+class Reader extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            csv: null
+        }
+    }
+
+    selectCsv(e) {
+        const csv = e.target.files[0];
+        this.setState({csv: null});
+
+        setTimeout(() => {
+            this.setState({csv});
+        }, 500)
+    }
+
+    render () {
+        return (
+            <div>
+                <label htmlFor="csv">
+                    Sélectionnez un CSV
+                    <input onChange={e => this.selectCsv(e)} name="csv" type="file" accept=".csv" />
+                </label>
+
+                <br/>
+                <br/>
+
+                {this.state.csv &&
+                <CsvToTable
+                    csv={this.state.csv}                // Required
+                    separator=';'                       // Optional
+                />
+                }
+            </div>
+        )
+    }
+}
+
+export default Reader;*/
+
+import React, { Component } from 'react';
+import {CsvToHtmlTable} from "react-csv-to-table";
+
+class Reader extends Component {
+
+    state = {
+        file: ""
+    }
+
+    showFile = async (e) => {
+        e.preventDefault()
+        const reader = new FileReader()
+        reader.onload = async (e) => {
+            const text = (e.target.result)
+            console.log(text)
+            alert(text)
+            console.log(e)
+            if (text)
+                console.log("cool");
+        };
+        reader.readAsText(e.target.files[0])
+    }
+
+    render = () => {
+        return (<div>
+                <input type="file" value={this.state.value} onChange={(e) => this.showFile(e)} />
+                <CsvToHtmlTable value={this.state.value} />
+            </div>
+        )
     }
 }
 

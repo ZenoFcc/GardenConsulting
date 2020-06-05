@@ -96,7 +96,6 @@ router.get('/oauth2/redirect', async (req, res) => {
                 res.redirect("http://localhost:8081/Dashboard");
             });
         }).catch((error) => console.log(error));
-
 });
 
 router.post('/checkTokken', (req, res) => {
