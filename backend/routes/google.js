@@ -249,26 +249,6 @@ function CheckDeleteEmail(token) {
                 })
 }
 
-function sendEmail(token) {
-    axios({
-        method: 'post',
-        url: "https://www.googleapis.com/gmail/v1/users/me/messages/send",
-        headers: {
-            Authorization: (`Bearer ${token}`),
-            accept: 'application/json'
-        },
-        data : {
-            "raw": "RnJvbTogQXJlYSA8bWVAZ21haWwuY29tPg0KVG86IEFyZWEgPG9saXZpZXIwMzI2QGdtYWlsLmNvbT4gDQpTdWJqZWN0OiBTYXlpbmcgSGVsbG8gDQoNClRlc3QgQXJlYSwgQ2hpcmFiIGVzdCBncm9zIA=="
-        }
-    })
-    .then(response => {
-        console.log("Email Sent")
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-}
-
 router.post('/recArea', (req, res) => {
     let action = req.body.action;
     let reaction = req.body.reaction;
@@ -395,5 +375,41 @@ passport.use(new GoogleStrategy({
    }
    })
 });*/
+
+function ReadMail(token) {
+    axios({
+        method: 'get',
+        url: "https://www.googleapis.com/gmail/v1/users/me/messages",
+        headers: {
+            Authorization: (`Bearer ${token}`),
+            accept: 'application/json'
+        }
+    })
+        .then(response => {
+            let a = response.data.messages;
+            let stock = a[0];
+            let stock1 = stock.id;
+            axios({
+                method: 'get',
+                url: "https://www.googleapis.com/gmail/v1/users/me/messages/" + stock1,
+                headers: {
+                    Authorization: (`Bearer ${token}`),
+                    accept: 'application/json'
+                }
+            })
+                .then(response => {
+                    let t = response.data.payload.headers;
+                    let dest = JSON.stringify(t);
+                    console.log(dest.value);
+                    check = dest.includes("<olivier0326@gmail.com>")
+                    if (check === true) {
+                        console.log(true);
+                    }
+                })
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
 
 module.exports = router;

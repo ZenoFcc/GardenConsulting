@@ -149,7 +149,6 @@ class Reader extends Component {
     render = () => {
         return (<div>
                 <input type="file" value={this.state.value} onChange={(e) => this.showFile(e)} />
-                <CsvToHtmlTable value={this.state.value} />
             </div>
         )
     }
